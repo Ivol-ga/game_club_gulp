@@ -1,0 +1,47 @@
+.header
+    background-color: $color-blue-dark
+    grid-column: contentFull-start/col-end 6
+    display: grid
+    grid-template-rows: 1fr min-content minmax(10rem, min-content) 1fr
+    padding: 5rem 5rem 5rem 6rem
+    background: url(../icons/header-bg.png) center / cover no-repeat
+    @include respond(tab-port)
+        grid-column: contentFull-start/contentFull-end
+    &__btn
+        align-self: start //чтобы зеленая область 
+        justify-self: start //с кнопкой не растягивалась
+    &__line-text
+        font-weight: 700
+        font-size: 1.6rem
+        color: $color-gray-dark
+
+        //расположение линии и текста друг за другом в строке:
+        display: grid
+        grid-template-columns: 1fr max-content 1fr
+        grid-column-gap: 2rem
+        align-items: center
+        margin-bottom: 1.3rem
+        &::before, &::after //линия до и после текста
+            content: ""
+            height: 0.2rem
+            display: block //чтобы линия была на всю ширину
+            background-color: $color-gray-dark
+    &__img // логотипы в одну строку и 4 колонки
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        justify-items: center
+        grid-gap: 2rem  
+        @include respond(phone)
+            grid-template-columns: min-content
+            justify-items: start  
+    &__img img
+        height: 2.5rem
+        //изменение цвета иконок
+        filter: brightness(70%)
+
+.logo
+    display: block
+    margin-bottom: 8rem
+    &__img
+        display: block
+        margin: 0 auto
